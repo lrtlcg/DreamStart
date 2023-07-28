@@ -1,0 +1,69 @@
+既然没有，那就创造
+一、页面搭建、及封装（4天）
+1.环境配置
+	1.github环境搭建
+	问题1：ssh: Could not resolve hostname -:  答案：进入cmd设置
+	问题2 .fatal: unable to access 'https://github.com/lrtlcg/test.git/': Recv failure: Connection was reset  答案：配置gitHUB 代理端口（https://blog.csdn.net/hggjjkk/article/details/130528271）
+	2.环境搭建
+	①使用 npm init vite@latest 项目名称 --template vue-ts
+	②使用vscode 打开
+	③修改 将moduleResolution设置为"node"；并删除allowImportingTsExtensions
+	④配置path 先安装 npm install @types/node --save-dev，然后配置path
+		a）在vite.config.json中
+		resolve: {
+    			alias: {
+    				  '@': path.resolve('./src')
+   			 }
+ 		 }
+		b)在tsconfig.json
+			/*配置路径别名*/
+    		"baseUrl": "./", //解析非相对模块的基地址，默认是当前目录
+  		  	"paths": {
+    		  	"@/*": [
+      		 	 "src/*"
+     			 ]
+   		 } // 路径映射，相对于baseUrl
+	⑤安装npm install -D unplugin-auto-import unplugin-vue-components ，自动引入
+	
+	问题1：TS5023 (TS) 未知的编译器选项“allowImportingTsExtensions”。答案：删除allowImportingTsExtensions（从 TypeScript 3.8 开始，这个选项已经被废弃了），将moduleResolution设置为"node"，并在导入时保留文件扩展名。
+	
+2.页面架构
+
+	1.编辑页面
+	2.预览页面
+	3.页面封装
+	4.封装成插件
+
+二、编辑页面开发
+1.页面主体结构开发（2天）
+	1.左侧
+	2.中间
+	3.上面
+	4.右侧
+2.header开发（3天）
+	1.按钮项（收缩，展开、导入、导出、返回，保存，预览）
+	2.通用按钮开发
+		保存
+		预览--》跳转到预览页面
+		收缩、展开
+3.左侧组件列表开发（12天）
+	1.开发简单的组件三个（text，按钮，表格）（6天）
+	2.组件列表分组展示（6天）
+4.组件拖拽（6天）
+	1.中央页面网格（3天）
+	2.拖拽到中央网页（3天）
+5.右侧属性开发（17天）
+	属性（3天）
+	动画（4天）
+	绑定（5天）
+	事件（5天）
+6.拖拽组件设置（30天）
+	1.复制删除（5天）
+	2.顶层、底层、上一层、下一层（5天）
+	3.锁定，解锁（5天）
+	4.形状设定（5天）
+	5.连线、吸附等（10天）
+7.其它组件开发完善
+	
+=================总计：74天（约3个月---》90天---》8月、9月、10月 完成，11月1号 有个基本的模型。）
+	
