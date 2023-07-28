@@ -26,6 +26,7 @@
 	⑤安装npm install -D unplugin-auto-import unplugin-vue-components ，自动引入
 	
 	问题1：TS5023 (TS) 未知的编译器选项“allowImportingTsExtensions”。答案：删除allowImportingTsExtensions（从 TypeScript 3.8 开始，这个选项已经被废弃了），将moduleResolution设置为"node"，并在导入时保留文件扩展名。
+	⑥配置eslint 和 prettier  参考https://github.com/DCLangX/howToAutoFixTypescript	
 	
 2.页面架构
 
