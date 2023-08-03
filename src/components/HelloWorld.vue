@@ -13,6 +13,7 @@ const counterStore = useCounterStore();
     <el-button type="warning"><i-ep-WarningFilled />Warning</el-button>
     <el-button type="danger"><i-ep-WarnTriangleFilled />Danger</el-button>
     <el-button type="info"><svg-icon icon-class="dj" />SVG 本地图标</el-button>
+    <el-button type="info"><icon-svg icon-class="dj" />SVG 本地图标2</el-button>
   </div>
   <p class="line">这里是pinia的测试</p>
   <div>

@@ -12,10 +12,15 @@ declare module 'vue' {
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
+    Home: typeof import('./../components/Home.vue')['default']
+    IconSvg: typeof import('./../components/IconSvg/index.vue')['default']
     IEpInfoFilled: typeof import('~icons/ep/info-filled')['default']
     IEpSuccessFilled: typeof import('~icons/ep/success-filled')['default']
     IEpWarningFilled: typeof import('~icons/ep/warning-filled')['default']
     IEpWarnTriangleFilled: typeof import('~icons/ep/warn-triangle-filled')['default']
+    Main: typeof import('./../components/Main.vue')['default']
+    Mian: typeof import('./../components/mian.vue')['default']
     SvgIcon: typeof import('./../components/SvgIcon/index.vue')['default']
+    Toolbar: typeof import('./../components/Toolbar.vue')['default']
   }
 }
