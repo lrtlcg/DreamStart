@@ -1,48 +1,53 @@
 <template>
     <div class="toolbar">
-        <el-button> JSON </el-button>
-        <el-button> 撤销 </el-button>
-        <el-button> 重做 </el-button>
+        <el-button>JSON</el-button>
+        <el-button>撤消</el-button>
+        <el-button>重做</el-button>
         <label for="input" class="insert">
             插入图片
-            <input id="input" type="file" hidden>
+            <input id="input" type="file" hidden />
         </label>
+
         <el-button style="margin-left: 10px;">预览</el-button>
-        <el-button style="margin-left: 10px;">保存</el-button>
-        <el-button style="margin-left: 10px;">清空画布</el-button>
-        <el-button style="margin-left: 10px;">组合</el-button>
-        <el-button style="margin-left: 10px;">拆分</el-button>
-        <el-button style="margin-left: 10px;">锁定</el-button>
-        <el-button style="margin-left: 10px;">解锁</el-button>
-        <el-button style="margin-left: 10px;">截图</el-button>
+        <el-button>保存</el-button>
+        <el-button>清空画布</el-button>
+        <el-button>组合</el-button>
+        <el-button>
+            拆分
+        </el-button>
+
+        <el-button>锁定</el-button>
+        <el-button>解锁</el-button>
+        <el-button>截图</el-button>
+
         <div class="canvas-config">
             <span>画布大小</span>
             <input />
             <span>*</span>
             <input />
         </div>
-        <div class="canvas-config" style="width: 150px;">
+        <div class="canvas-config">
             <span>画布比例</span>
-            <input>%
+            <input /> %
         </div>
     </div>
 </template>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .toolbar {
-    border-bottom: 1px solid #dcdfe6;
+    padding: 15px 10px;
+    white-space: nowrap;
     overflow-x: auto;
-    @apply flex justify-center items-center py-1 px-10 mx-4;
-    // width: 0;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
 
     .canvas-config {
         display: inline-block;
         margin-left: 10px;
         font-size: 14px;
-        width: 200px;
         color: #606266;
 
         input {
-            width: 50px;
+            width: 40px;
             margin-left: 4px;
             outline: none;
             padding: 0 5px;
@@ -56,12 +61,13 @@
     }
 
     .insert {
-        display: block;
+        display: inline-block;
         line-height: 1;
         white-space: nowrap;
         cursor: pointer;
         background: #fff;
         border: 1px solid #dcdfe6;
+        color: #606266;
         appearance: none;
         text-align: center;
         box-sizing: border-box;

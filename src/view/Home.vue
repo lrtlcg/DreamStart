@@ -3,11 +3,13 @@
         <toolbar></toolbar>
     </div>
 </template>
-<style scoped>
+<style lang="scss">
 .home {
+    height: 100vh;
     position: absolute;
-    left: 5px;
-    top: 0px;
-    @apply fixed min-w-full;
+    left: 0;
+    top: 0;
+    background: red;
+    @apply w-full;
 }
 </style>

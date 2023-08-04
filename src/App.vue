@@ -1,12 +1,25 @@
 <script setup lang="ts">
-// import { useCounterStore } from "@/store/counter";
-// const counterStore = useCounterStore();
 </script>
 <template>
-  <!-- <h1 class="text-3xl">vue3-element-admin-父组件</h1>
-  <el-button type="primary" @click="counterStore.increment">count++</el-button>
-  <HelloWorld /> -->
-  <home></home>
+  <router-view />
 </template>
 
-<style scoped></style>
+<style scoped>
+#app {
+  background: #2c3e50;
+  font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Heiti SC",
+    "Microsoft YaHei",
+    "WenQuanYi Micro Hei",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+</style>
