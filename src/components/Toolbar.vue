@@ -34,6 +34,7 @@
 </template>
 <style lang="scss" scoped>
 .toolbar {
+
     padding: 15px 10px;
     white-space: nowrap;
     overflow-x: auto;

@@ -5,6 +5,8 @@ import App from "./App.vue";
 import "virtual:svg-icons-register";
 import "virtual:windi.css";
 import { createPinia } from "pinia";
+
+import "@/assets/iconfont/iconfont.css";
 import "@/styles/animate.scss";
 import "@/styles/reset.css";
 import "@/styles/global.scss";

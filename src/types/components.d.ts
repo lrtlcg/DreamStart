@@ -7,10 +7,15 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ComponentList: typeof import('./../components/ComponentList.vue')['default']
+    Editor: typeof import('./../components/Editor/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import("element-plus/es")["ElCard"]
     ElForm: typeof import("element-plus/es")["ElForm"]
     ElFormItem: typeof import("element-plus/es")["ElFormItem"]
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
+    Grid: typeof import('./../components/Editor/Grid.vue')['default']
     HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
     Home: typeof import("./../view/Home.vue")["default"]
     IconSvg: typeof import('./../components/IconSvg/index.vue')['default']

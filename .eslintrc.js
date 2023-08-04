@@ -13,4 +13,15 @@ module.exports = {
     // 放置ESLint规则的位置。可用于覆盖从扩展配置中指定的规则
     // 例如 "@typescript-eslint/explicit-function-return-type": "off",
   },
+  // The Follow configs works with eslint-plugin-vue v7.x.x
+  globals: {
+    defineProps: "readonly",
+    defineEmits: "readonly",
+    defineExpose: "readonly",
+    withDefaults: "readonly",
+  },
+  env: {
+    node: true,
+    "vue/setup-compiler-macros": true,
+  },
 };
