@@ -1,6 +1,6 @@
 <template>
-    <div class="component-list">
-        <div v-for="(item, index) in componentList" :key="index" class="list" draggable :data-index="index">
+    <div class="component-list" @dragstart="handleDragStart">
+        <div v-for="(item, index) in componentList" :key="index" class="list" draggable="true" :data-index="index">
             <span v-if="item.icon.substr(0, 2) === 'el'" :class="item.icon">{{ item.label }}</span>
             <span v-else class="iconfont" :class="'icon-' + item.icon">{{ item.label }}</span>
         </div>
@@ -9,6 +9,11 @@
 
 <script setup lang="ts">
 import componentList from '@/custom-component/component-list'
+//点击开始拖动时
+function handleDragStart(e: any): void {
+    e.dataTransfer.setData('index', e.target.dataset.index);
+}
+
 
 </script>
 

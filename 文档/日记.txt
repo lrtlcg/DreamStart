@@ -1,0 +1,68 @@
+=================================第二天
+1.问题：If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import()
+  答案：在引入的时候使用报错提示让我们使用：@rollup/plugin-dynamic-import-vars这个插件。
+  在index.ts 页面进行配置
+  import { createApp } from "vue";
+  const modules = import.meta.glob("@/custom-component/*/*.vue"); //这里使用vite自带的glob模式
+
+  const app = createApp({});
+  const components = ["VText", "VButton"];
+
+  components.forEach((key) => {
+  //   app.component(key, () => import(`@/custom-component/${key}/Component`));
+  //   app.component(key + "Attr", () => import(`@/custom-component/${key}/Attr`));
+    let componentUrl = `/src/custom-component/${key}/Component.vue`; //定义组件
+    let attrUrl = `/src/custom-component/${key}/Attr.vue`;
+    
+    app.component(key, modules[componentUrl]); //从modelus中匹配
+    app.component(key + "Attr", modules[attrUrl]);
+  });
+  
+  2.在列表的中使用@dragstart="handleDragStart",完成组件的拖拽，即：在
+  //点击开始拖动时
+  function handleDragStart(e: any): void {
+    //DataTransfer.setData() 方法用来设置拖放操作的drag data到指定的数据和类型
+    e.dataTransfer.setData('index', e.target.dataset.index)
+  }
+==========================================第三天
+1.问题：组件注册没有成功（区别于上面的引入，以下通过测试得到组件）
+import { App, defineAsyncComponent } from "vue";
+const modules = import.meta.glob("./*/*.vue"); //vite  中使用 glob进行动态的引入
+const components = ["VText", "VButton"];
+export default {
+  install(app: App) {
+    components.forEach((key) => {
+      let componentUrl = `./${key}/Component.vue`; //定义组件
+      let attrUrl = `./${key}/Attr.vue`;
+      if (modules[componentUrl] !== undefined) {
+        app.component(key, defineAsyncComponent(modules[componentUrl] as any)); //匹配，这里使用异步，否则路径错误，加载失败
+      }
+      if (modules[attrUrl] !== undefined) {
+        // console.log("***************" + modules[attrUrl]);
+        app.component(key + "Attr", modules[attrUrl]);
+      }
+    });
+  },
+};
+***********在main.ts中
+import ccomponent from "@/custom-component/index"; // 注册自定义组件
+app.use(ccomponent);
+2.鼠标拖拽问题详解
+1）总体思路
+在列表组件（componentlist）上增加dragstart事件，将目标组件的index传递
+在网格页面（home）在鼠标松开，通过drop事件，得到组件的index
+2）增加dragstart事件
+<div class="component-list" @dragstart="handleDragStart">
+html5 以后，要设置draggable="true"
+
+function handleDragStart(e: any): void {
+    e.dataTransfer.setData('index', e.target.dataset.index);
+}
+3）在网格页面增加drop事件
+<div class="content" @drop="handleDrop" @dragover="e => e.preventDefault()"> //html5以后，要@dragover="e => e.preventDefault()"
+function handleDrop(e: any): void {
+    e.preventDefault()
+    e.stopPropagation()
+    console.log("====" + e.dataTransfer.getData('index'))
+}
+

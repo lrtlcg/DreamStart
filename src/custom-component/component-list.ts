@@ -50,6 +50,22 @@ const list = [
       color: "",
     },
   },
+  {
+    component: "VButton",
+    label: "按钮",
+    propValue: "按钮",
+    icon: "el",
+    style: {
+      width: 200,
+      height: 28,
+      fontSize: "",
+      fontWeight: 400,
+      lineHeight: "",
+      letterSpacing: 0,
+      textAlign: "",
+      color: "",
+    },
+  },
 ];
 
 //扩展公共项

@@ -8,7 +8,7 @@
             </section>
             <!-- 中间画布 -->
             <section class="center">
-                <div class="content">
+                <div class="content" @drop="handleDrop" @dragover="e => e.preventDefault()">
                     <Editor />
                 </div>
             </section>
@@ -30,6 +30,21 @@
         </main>
     </div>
 </template>
+
+<script setup lang="ts">
+import componentList from '@/custom-component/component-list'
+import { deepCopy } from '@/utils/utils'
+
+function handleDrop(e: any): void {
+    e.preventDefault()
+    e.stopPropagation()
+    console.log("====" + componentList[e.dataTransfer.getData('index')]);
+    const component = deepCopy(componentList[e.dataTransfer.getData('index')])
+    $store.commit('addComponent', { component });
+}
+
+
+</script>
 <style lang="scss">
 .home {
     height: 100vh;

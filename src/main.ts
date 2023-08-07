@@ -5,6 +5,8 @@ import App from "./App.vue";
 import "virtual:svg-icons-register";
 import "virtual:windi.css";
 import { createPinia } from "pinia";
+import ccomponent from "@/custom-component/index"; // 注册自定义组件
+// import test from "@/test/index";
 
 import "@/assets/iconfont/iconfont.css";
 import "@/styles/animate.scss";
@@ -17,4 +19,6 @@ const app = createApp(App);
 app.use(createPinia());
 app.use(ElementPlus, { size: "small" });
 app.use(router);
+app.use(ccomponent);
+// app.use(test);
 app.mount("#app");
