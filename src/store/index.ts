@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import Vue from "vue";
+import { set } from "vue";
 const store = createStore({
   state: {
     editMode: "edit", //编辑器模式 edit preview
@@ -71,7 +71,8 @@ const store = createStore({
 
     setComponentData(state, componentData = []) {
       //   Vue.set(state, "componentData", componentData);
-      state["componentData"] = componentData;
+      set(state, "componentData", componentData);
+      //   state["componentData"] = componentData;
     },
   },
 });
