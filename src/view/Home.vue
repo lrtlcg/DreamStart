@@ -34,13 +34,19 @@
 <script setup lang="ts">
 import componentList from '@/custom-component/component-list'
 import { deepCopy } from '@/utils/utils'
+import { useStore } from 'vuex';
+import { computed } from 'vue';
+const store = useStore();
 
-function handleDrop(e: any): void {
+function handleDrop(this: any, e: any): void {
     e.preventDefault()
     e.stopPropagation()
-    console.log("====" + componentList[e.dataTransfer.getData('index')]);
+    // console.log("====" + componentList[e.dataTransfer.getData('index')]);
     const component = deepCopy(componentList[e.dataTransfer.getData('index')])
-    $store.commit('addComponent', { component });
+    store.commit('addComponent', { component });
+    const cd = computed(() => store.state.componentData)
+    console.log("cccccccccccccccc:" + cd);
+
 }
 
 

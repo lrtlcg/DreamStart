@@ -27,6 +27,7 @@ declare module 'vue' {
     Mian: typeof import("./../components/mian.vue")["default"]
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Shape: typeof import('./../components/Editor/Shape.vue')['default']
     SvgIcon: typeof import('./../components/SvgIcon/index.vue')['default']
     Toolbar: typeof import('./../components/Toolbar.vue')['default']
   }

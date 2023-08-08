@@ -1,4 +1,4 @@
-import Vue from "vue";
+// import { set, createApp } from "vue";
 //复制
 export function deepCopy(target: any) {
   if (typeof target == "object") {
@@ -21,6 +21,6 @@ export function swap(
   j: string | number,
 ) {
   const temp = arr[i];
-  Vue.set(arr, i, arr[j]);
-  Vue.set(arr, j, temp);
+  Reflect.set(arr, i, arr[j]);
+  Reflect.set(arr, j, temp);
 }

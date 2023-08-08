@@ -65,4 +65,27 @@ function handleDrop(e: any): void {
     e.stopPropagation()
     console.log("====" + e.dataTransfer.getData('index'))
 }
+3.问题：vue2中的vue.set()给对象增加属性，在vue3中已经废除
+Reflect.set(arr, i, arr[j]);//进行替代，其中Reflect是一个系统内置对象，不需要new Reflect（）就可以使用
 
+==========================================第四天
+1. 问题：如何解决类型上不存在“$store”的问题   答案： 由于vue3中setup里面不能使用this，setup的任何回调方法都无法以this.$router和$this.store来获取路由和状态。
+不过两个官方示例都写了在setup中引入的方法：
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+...
+setup(){
+    const router = useRouter();
+    const store = useStore(); //在这里实例，使用
+    
+    //某回调方法
+    const onFinish()=>{
+        store.commit("doit");
+        router.push("");
+    }
+}
+2.vue3 在vuex中取值
+import { useStore } from 'vuex';
+import { computed } from 'vue';
+const store = useStore();
+const componentData = computed(() => store.state.componentData);

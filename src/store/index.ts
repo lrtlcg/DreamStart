@@ -1,5 +1,4 @@
 import { createStore } from "vuex";
-import { set } from "vue";
 const store = createStore({
   state: {
     editMode: "edit", //编辑器模式 edit preview
@@ -14,7 +13,7 @@ const store = createStore({
       fontSize: 14,
     },
     isInEdiotr: false, // 是否在编辑器，用于判断复制、粘贴组件时是否生效，如果在编辑器外，则无视这些操作
-    componentData: [] as any[], //画布组件数据
+    componentData: [] as any[], //类似画布组件数据库，存放一个个组件的
     curComponent: null as any,
     curComponentIndex: null,
     //点击画布时是否点中组件，主要用于取消选中组件用
@@ -70,9 +69,30 @@ const store = createStore({
     },
 
     setComponentData(state, componentData = []) {
-      //   Vue.set(state, "componentData", componentData);
-      set(state, "componentData", componentData);
-      //   state["componentData"] = componentData;
+      //   Vue.set(state, "componentData", componentData);//2.0 写法
+      Reflect.set(state, "componentData", componentData); //3.0写法
+    },
+    addComponent(state, { component, index }) {
+      //增加组件到 组件库中
+      if (index !== undefined) {
+        state.componentData.splice(index, 0, component);
+      } else {
+        state.componentData.push(component);
+      }
+    },
+    deleteComponent(state, index) {
+      if (index === undefined) {
+        index = state.curComponentIndex;
+      }
+
+      if (index == state.curComponentIndex) {
+        state.curComponentIndex = null;
+        state.curComponent = null;
+      }
+
+      if (/\d/.test(index)) {
+        state.componentData.splice(index, 1);
+      }
     },
   },
 });
